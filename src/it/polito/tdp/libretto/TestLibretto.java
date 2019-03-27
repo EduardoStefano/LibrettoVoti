@@ -1,0 +1,29 @@
+package it.polito.tdp.libretto;
+
+import java.time.LocalDate;
+
+public class TestLibretto {
+
+	public static void main(String[] args) {
+		
+		Libretto libr = new Libretto();
+		libr.add(new Voto(30, "Analisi I", LocalDate.of(2017, 1, 15)));
+		libr.add(new Voto(28, "Analisi II", LocalDate.of(2018, 1, 10)));
+		libr.add(new Voto(25, "Fisica I", LocalDate.of(2019, 2, 3)));
+		libr.add(new Voto(20, "Fisica II", LocalDate.of(2018, 6, 20)));
+		libr.add(new Voto(18, "Geometria", LocalDate.of(2018, 6, 21)));
+		libr.add(new Voto(24, "Programmazione a Oggetti", LocalDate.of(2017, 1, 22)));
+		libr.add(new Voto(19, "Economia", LocalDate.of(2017, 3, 15)));
+		libr.add(new Voto(19, "Ricerca operativa", LocalDate.of(2019, 3, 17)));
+		libr.add(new Voto(27, "Complementi di economia", LocalDate.of(2017, 2, 18)));
+		libr.add(new Voto(26, "Logistica", LocalDate.of(2017, 2, 19)));
+		
+		
+		
+	}
+	
+	
+	
+	
+
+}
