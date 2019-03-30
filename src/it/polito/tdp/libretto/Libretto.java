@@ -33,6 +33,7 @@ public class Libretto {
 	public List<Voto> cercaVoti(int voto){
 		
 		List<Voto> result = new ArrayList<Voto>();
+		
 		for(Voto v:this.voti) {
 			if(v.getPunti()==voto) {
 				result.add(v);
@@ -49,12 +50,15 @@ public class Libretto {
 	 * @return il {@link Voto} corrispondente, oppure {@link null} se non esistente
 	 */
 	public Voto cercaEsame(String nomeEsame) {
-		for(Voto v:this.voti) {
-			if(v.getCorso().equals(nomeEsame)) {
-				return v;
-			}
+		Voto voto = new Voto(0, nomeEsame, null);
+		int pos = voti.indexOf(voto);
+		if(pos==-1) {
+			return null;
 		}
-		return null;
+		else {
+			return voti.get(pos);
+		}
+		
 	}
 	
 	/**
@@ -65,13 +69,12 @@ public class Libretto {
 	 * {@code false} se  non ha trovato il coros o l'ha trovato con voto diverso
 	 */
 	public boolean esisteGiaVoto(Voto v) {
-		Voto trovato = this.cercaEsame(v.getCorso());
-		if(trovato!=null) {
-			if(trovato.getPunti()==v.getPunti()) {
-				return true;
-			}
+		int pos = this.voti.indexOf(v);
+		if(pos==-1) {
+			return false;
 		}
-		return false;
+		else 
+			return (v.getPunti()==this.voti.get(pos).getPunti());
 	}
 	
 	
