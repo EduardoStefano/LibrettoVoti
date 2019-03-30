@@ -106,4 +106,32 @@ public class Libretto {
 		return this.voti.toString();
 	}
 	
+	public Libretto librettoMigliorato(){
+		Libretto nuovo = new Libretto();
+		for(Voto v:this.voti) {
+			nuovo.add(v.clone());
+		}
+		for(Voto v:nuovo.voti) {
+			int punti = v.getPunti();
+			if(punti<24)
+				punti+=1;
+			else if(punti <= 28)
+				punti+=2;
+			v.setPunti(punti);
+		}
+		return nuovo;
+	}
+	
+	//modificare la collection mentre sta iterando non va bene
+	//è bene utilizzare un metodod come questo
+	public void cancellaVotiScarsi() {
+		List<Voto> votiDaCancellare = new ArrayList<Voto>();
+		for(Voto v:this.voti) {
+			if(v.getPunti()<24) {
+				votiDaCancellare.add(v);
+			}
+		}
+		this.voti.removeAll(votiDaCancellare);
+	}
+	
 }
